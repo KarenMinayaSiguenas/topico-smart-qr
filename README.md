@@ -1,6 +1,6 @@
 # TÓPICO SMART QR
 
-**Presentación pública (abre desde cualquier dispositivo):** https://jeshu23.github.io/topico-smart-qr/
+**Presentación pública (abre desde cualquier dispositivo):** https://karenminayasiguenas.github.io/topico-smart-qr/
 
 ![Panel principal de TÓPICO SMART QR](docs/dashboard.png)
 
@@ -63,7 +63,7 @@ Para reinicializar el esquema y los datos base: `npm run db:init`.
 ## Despliegue en Render (recomendado si Netlify no está disponible)
 
 El repo incluye `render.yaml` (Blueprint). Crea una cuenta en https://render.com → **New + → Blueprint** →
-conecta GitHub → selecciona `Jeshu23/topico-smart-qr` → **Apply**. Render crea automáticamente el
+conecta GitHub → selecciona `KarenMinayaSiguenas/topico-smart-qr` → **Apply**. Render crea automáticamente el
 servicio Node y la base PostgreSQL, y configura `DATABASE_URL` y `JWT_SECRET`.
 La URL pública será `https://topico-smart-qr.onrender.com`.
 
@@ -81,7 +81,7 @@ y copia la cadena de conexión, por ejemplo:
 
 **Paso 2 — Desde tu repositorio de GitHub:**
 1. Entra a https://app.netlify.com → **Add new site** → **Import an existing project**.
-2. Elige **Deploy with GitHub** y autoriza Netlify; selecciona `Jeshu23/topico-smart-qr`.
+2. Elige **Deploy with GitHub** y autoriza Netlify; selecciona `KarenMinayaSiguenas/topico-smart-qr`.
 3. En *Build settings* déjalo así:
    - Base directory: *(vacío)*
    - Build command: *(vacío)*
