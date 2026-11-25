@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400" role="img" aria-label="Salbutamol">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf5fc"/><stop offset="1" stop-color="#dcebfa"/></linearGradient><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3f8fd"/><stop offset="1" stop-color="#a8c4dd"/></linearGradient></defs>
+<rect width="400" height="400" rx="52" fill="url(#g1)"/>
+<rect x="30" y="30" width="340" height="340" rx="32" fill="none" stroke="#c5dbeb" stroke-width="4"/>
+<ellipse cx="200" cy="180" rx="110" ry="40" fill="url(#g2)" stroke="#34445a" stroke-width="4"/>
+<ellipse cx="130" cy="160" rx="40" ry="30" fill="url(#g2)" stroke="#34445a" stroke-width="4"/>
+<ellipse cx="270" cy="160" rx="40" ry="30" fill="url(#g2)" stroke="#34445a" stroke-width="4"/>
+<text x="200" y="295" text-anchor="middle" font-family="Sora,system-ui,sans-serif" font-weight="700" font-size="30" fill="#34445a">100 mcg</text>
+<text x="200" y="70" text-anchor="middle" font-family="Inter,system-ui,sans-serif" font-weight="700" font-size="28" fill="#34445a">Salbutamol</text>
+</svg>
