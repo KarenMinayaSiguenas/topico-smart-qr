@@ -4,8 +4,23 @@ const API = (function () {
   const token = () => localStorage.getItem(CLAVE);
   const guardarToken = (t) => localStorage.setItem(CLAVE, t);
   const limpiarToken = () => localStorage.removeItem(CLAVE);
+  let modoDemo = new URLSearchParams(location.search).has('demo');
+  let avisadoDemo = false;
+
+  async function usarDemo(ruta, opciones) {
+    if (typeof Demo === 'undefined') throw new Error('El servicio no está disponible.');
+    if (!avisadoDemo) {
+      avisadoDemo = true;
+      if (window.UI) UI.toast('Modo demostración: los datos se guardan en este navegador.', 'info', 'Sin conexión al servidor');
+    }
+    const resultado = await Demo.peticion(ruta, opciones);
+    if (resultado && resultado.error) throw new Error(resultado.error);
+    return resultado;
+  }
 
   async function peticion(ruta, { metodo = 'GET', cuerpo, archivo = false } = {}) {
+    const opciones = { metodo, cuerpo, archivo };
+    if (modoDemo) return usarDemo(ruta, opciones);
     const headers = {};
     if (token()) headers.Authorization = `Bearer ${token()}`;
     if (cuerpo !== undefined) headers['Content-Type'] = 'application/json';
@@ -17,7 +32,13 @@ const API = (function () {
         body: cuerpo !== undefined ? JSON.stringify(cuerpo) : undefined
       });
     } catch (e) {
-      throw new Error('No se pudo conectar con el servidor. Verifique que el sistema esté en ejecución.');
+      modoDemo = true;
+      return usarDemo(ruta, opciones);
+    }
+
+    if ([502, 503, 504].includes(respuesta.status)) {
+      modoDemo = true;
+      return usarDemo(ruta, opciones);
     }
 
     if (respuesta.status === 401 && !ruta.startsWith('/auth/login')) {
